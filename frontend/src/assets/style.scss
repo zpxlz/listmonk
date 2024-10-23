@@ -447,19 +447,29 @@ body.is-noscroll {
   }
 }
 .modal-background {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(241, 241, 241, 0.7);
 }
 .modal-content, .modal.dialog .modal-card {
   background: $white;
-  box-shadow: 2px 2px 3px #e4e4e4;
-  border: 1px solid #e5e5e5;
+  box-shadow: 0 0 10px #ddd;
+  border: 1px solid #ddd;
   padding: 0;
+  border-radius: 5px;
 }
 .modal-card-head {
   display: block;
+  border-bottom: 0;
+}
+.modal-card-body {
+  padding: 30px 20px;
 }
 .modal .modal-card-foot {
+  background: none;
   justify-content: flex-end;
+  border-top: 0;
+}
+.modal .modal-card-foot button {
+  flex-grow: 1;
 }
 .modal .modal-close.is-large {
   display: none;
@@ -482,12 +492,16 @@ body.is-noscroll {
 .button {
   &.is-primary {
     background: $primary;
+    font-weight: bold;
 
-    &:hover {
+    &:hover, &:active {
       background: darken($primary, 15%);
     }
     &:disabled {
       background: $grey-light;
+    }
+    &:focus:not(:active), &.is-focused:not(:active) {
+      box-shadow: 0 0 0 0.2em rgba($primary, 0.25);
     }
   }
 
@@ -588,8 +602,20 @@ body.is-noscroll {
 }
 
 /* Tabs */
-.b-tabs .tab-content {
-  padding-top: 3rem;
+.b-tabs {
+  .tab-content {
+    padding: 30px 20px;
+
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px 1px;
+    border-radius: 5px;
+
+    box-shadow: 2px 2px 0 #f3f3f3;
+  }
+
+  ul[role=tablist] {
+    margin-left: 0;
+  }
 }
 
 /* Tags */
